@@ -1,5 +1,7 @@
 const jadwal = [
-  { hari: "Senin", mapel: "Akuntansi Dasar", jam: "07.00 - 08.40" },
+  { hari: "Senin", mapel: "Etika Profesi", "Ipas", " jam: "07.00 - 08.40" },
+    
+  
   { hari: "Selasa", mapel: "Bahasa Indonesia", jam: "08.40 - 10.20" },
   { hari: "Rabu", mapel: "Matematika", jam: "10.30 - 12.00" },
 ];
@@ -10,3 +12,4 @@ jadwal.forEach(item => {
   row.innerHTML = `<td>${item.hari}</td><td>${item.mapel}</td><td>${item.jam}</td>`;
   tbody.appendChild(row);
 });
+
