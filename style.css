@@ -1,7 +1,7 @@
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
-  background: #3369f;
+  background: #054BAB;
   color: #333;
 }
 
@@ -67,4 +67,5 @@ button {
   padding: 0.7em 1.5em;
   cursor: pointer;
 }
+
 
