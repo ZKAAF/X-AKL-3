@@ -1,15 +1,32 @@
-const jadwal = [
-  { hari: "Senin", mapel: "Etika Profesi", "Ipas", " jam: "07.00 - 08.40" },
-    
-  
-  { hari: "Selasa", mapel: "Bahasa Indonesia", jam: "08.40 - 10.20" },
-  { hari: "Rabu", mapel: "Matematika", jam: "10.30 - 12.00" },
-];
+const jadwal = {
+  SENIN: [
+    "UPACARA", "ETIKA PROFESI", "ETIKA PROFESI", "ETIKA PROFESI",
+    "IPAS", "IPAS", "IPAS", "SENI MUSIK", "SENI MUSIK",
+    "INFORMATIKA", "INFORMATIKA"
+  ],
+  SELASA: [
+    "SPREADSHEET", "SPREADSHEET", "SPREADSHEET", "SPREADSHEET",
+    "IPAS", "IPAS", "IPAS", "PEND. PANCASILA", "PEND. PANCASILA",
+    "BAHASA INGGRIS", "BAHASA INGGRIS"
+  ],
+  RABU: [
+    "INFORMATIKA", "INFORMATIKA", "BAHASA KOREA", "BAHASA KOREA",
+    "MATEMATIKA", "MATEMATIKA", "MATEMATIKA", "MATEMATIKA",
+    "PEND. AGAMA ISLAM", "PEND. AGAMA ISLAM", "PEND. AGAMA ISLAM"
+  ],
+  KAMIS: [
+    "BAHASA INDONESIA", "BAHASA INDONESIA", "BAHASA INDONESIA", "BAHASA INDONESIA",
+    "BAHASA INGGRIS", "BAHASA INGGRIS",
+    "DASAR-DASAR AKL 1", "DASAR-DASAR AKL 1", "DASAR-DASAR AKL 1", "DASAR-DASAR AKL 1", "DASAR-DASAR AKL 1"
+  ],
+  JUMAT: [
+    "PJOK", "PJOK", "PJOK", "SEJARAH", "SEJARAH"
+  ]
+};
 
-const tbody = document.getElementById("jadwal-body");
-jadwal.forEach(item => {
-  const row = document.createElement("tr");
-  row.innerHTML = `<td>${item.hari}</td><td>${item.mapel}</td><td>${item.jam}</td>`;
-  tbody.appendChild(row);
-});
-
+function tampilkanJadwal(hari) {
+  const container = document.getElementById("jadwal-container");
+  container.innerHTML = `<h2>Jadwal Hari ${hari}</h2><ul>` +
+    jadwal[hari].map((mapel, index) => `<li>${index + 1}. ${mapel}</li>`).join("") +
+    `</ul>`;
+}
