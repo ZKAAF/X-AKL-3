@@ -1,30 +1,88 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kelas X AKL 3</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Website Kelas Interaktif</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <header class="site-header">
+    <h1 class="title">Kelas Interaktif</h1>
+    <nav class="nav-choices">
+      <button data-view="profil" class="nav-btn active">Profil</button>
+      <button data-view="jadwal" class="nav-btn">Jadwal Pelajaran</button>
+      <button data-view="anggota" class="nav-btn">Anggota</button>
+    </nav>
+  </header>
 
-  <h1>Jadwal Pelajaran Kelas X AKL 3</h1>
+  <main class="container">
+    <!-- PROFIL -->
+    <section id="profil" class="view">
+      <h2 class="section-title">Profil</h2>
+      <div class="profil-controls">
+        <label class="small">Masuk sebagai
+          <select id="roleSelect">
+            <option value="member">Member</option>
+            <option value="admin">Admin</option>
+          </select>
+        </label>
+        <label class="small">Admin name
+          <input id="adminName" placeholder="nama admin" />
+        </label>
+      </div>
 
-  <select onchange="tampilkanJadwal(this.value)">
-    <option value="">-- Pilih Hari --</option>
-    <option value="SENIN">Senin</option>
-    <option value="SELASA">Selasa</option>
-    <option value="RABU">Rabu</option>
-    <option value="KAMIS">Kamis</option>
-    <option value="JUMAT">Jum'at</option>
-  </select>
+      <div class="member-grid" id="memberGrid" aria-live="polite">
+        <!-- member cards diisi oleh JS -->
+      </div>
+    </section>
 
-  <div id="jadwal-container"></div>
+    <!-- JADWAL -->
+    <section id="jadwal" class="view" hidden>
+      <h2 class="section-title">Jadwal Pelajaran</h2>
+      <div class="jadwal-wrap">
+        <div class="day-list" id="dayList">
+          <!-- hari dan mata pelajaran diisi oleh JS -->
+        </div>
 
-  <div class="profil-kelas">
-    <h2>Anggota Kelas X AKL 3</h2>
-    <div class="profil-grid" id="daftar-anggota">
-      <!-- Anggota akan dimasukkan lewat JavaScript -->
+        <aside class="jadwal-aside">
+          <h3>Info Mapel</h3>
+          <div id="mapelInfo">Pilih mapel untuk lihat detail</div>
+
+          <h4>Pesan untuk admin</h4>
+          <p class="small">Link GForm: <strong>tempat-link-gform</strong></p>
+
+          <h4>Copyright</h4>
+          <p class="small">© Kelas Interaktif</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ANGGOTA -->
+    <section id="anggota" class="view" hidden>
+      <h2 class="section-title">Anggota Kelas</h2>
+      <p class="small">Semua 35 anggota, terpusat</p>
+      <div class="member-list" id="memberList">
+        <!-- daftar nama diisi oleh JS -->
+      </div>
+    </section>
+  </main>
+
+  <!-- modal edit tugas untuk admin -->
+  <div id="taskModal" class="modal" hidden>
+    <div class="modal-content">
+      <h3>Edit Tanda Tugas</h3>
+      <p id="modalMapelName"></p>
+      <label>Centang untuk beri tanda tugas
+        <input type="checkbox" id="taskFlag" />
+      </label>
+      <label>Deskripsi tugas
+        <textarea id="taskDesc" rows="4" placeholder="Deskripsi alasan diberi tanda"></textarea>
+      </label>
+      <div class="modal-actions">
+        <button id="saveTaskBtn" class="btn primary">Simpan</button>
+        <button id="closeTaskBtn" class="btn">Batal</button>
+      </div>
     </div>
   </div>
 
