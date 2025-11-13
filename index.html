@@ -21,10 +21,17 @@
   </header>
 
   <section id="profil">
-    <h2>Profil Kelas</h2>
-    <p>Wali Kelas:Farita Nurmala S.Pd</p>
-    <p>Jumlah Siswa: 35</p>
-    <p>Visi: Balance atas semua transaksi</p>
+    <h1>Jadwal Pelajaran Kelas X AKL 3</h1>
+<select onchange="tampilkanJadwal(this.value)">
+  <option value="">-- Pilih Hari --</option>
+  <option value="SENIN">Senin</option>
+  <option value="SELASA">Selasa</option>
+  <option value="RABU">Rabu</option>
+  <option value="KAMIS">Kamis</option>
+  <option value="JUMAT">Jum'at</option>
+</select>
+
+<div id="jadwal-container"></div>
   </section>
 
   <section id="jadwal">
@@ -72,3 +79,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
