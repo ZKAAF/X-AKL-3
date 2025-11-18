@@ -1,84 +1,99 @@
-body {
+* {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #f0f4f8;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
   color: #333;
 }
 
-.hero {
-  height: 25vh;
-  background: linear-gradient(to right, #00c6ff, #0072ff);
-  color: white;
+header {
   text-align: center;
-  padding-top: 2rem;
+  padding: 40px 20px;
+  background-color: #004080;
+  color: white;
 }
 
-.description {
-  margin-top: 1rem;
-  font-size: 1.2rem;
-}
-
-.navbar {
+nav {
   display: flex;
   justify-content: center;
-  background: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  gap: 20px;
+  padding: 20px;
+  background-color: #0066cc;
 }
 
-.navbar button {
-  padding: 1rem 2rem;
+nav button {
+  padding: 10px 20px;
   border: none;
-  background: none;
-  cursor: pointer;
+  background-color: white;
+  color: #0066cc;
   font-weight: bold;
-  transition: background 0.3s;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
-.navbar button:hover {
-  background: #e0e0e0;
+nav button:hover {
+  background-color: #ddd;
+}
+
+main {
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .page {
   display: none;
-  padding: 2rem;
 }
 
 .page.active {
   display: block;
 }
 
-.murid-grid {
+.profil-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
 }
 
-.murid-card {
+.profil-card {
   text-align: center;
 }
 
-.murid-card img {
+.profil-card img {
   width: 100px;
   height: 100px;
   object-fit: cover;
   border-radius: 50%;
 }
 
-.reminder form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.jadwal {
+  margin-bottom: 20px;
+}
+
+.jadwal h3 {
+  margin-top: 20px;
+}
+
+.reminder {
+  background-color: #ffe680;
+  padding: 15px;
+  border-left: 5px solid #ffcc00;
+  margin-top: 20px;
+}
+
+.reminder input, .reminder select, .reminder textarea {
+  display: block;
+  margin: 5px 0;
+  width: 100%;
   max-width: 400px;
 }
 
-.foto-grid {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.foto-grid img {
+.galeri img {
   width: 200px;
-  height: auto;
-  border-radius: 8px;
+  margin: 10px;
+  border-radius: 10px;
 }
