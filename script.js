@@ -2,7 +2,7 @@ const pages = {
   profil: `
     <h2>Profil Kelas X AKL 3</h2>
     <h3>Guru</h3>
-    <p>"ISI-TEXT"</p>
+    <p>"FARITA NURMALA S.Pd."</p>
     <h3>Siswa</h3>
     <div class="profil-grid">
       ${generateSiswa(35)}
@@ -37,9 +37,9 @@ const pages = {
         <li>INFORMATIKA (2 jam)</li>
         <li>BAHASA KOREA (2 jam)</li>
         <li>ISTIRAHAT</li>
-        <li>MATEmatika (3 jam)</li>
+        <li>MATEMATIKA (3 jam)</li>
         <li>ISHOMA</li>
-        <li>MATEmatika</li>
+        <li>MATEMATIKA</li>
         <li>PEND. AGAMA ISLAM (3 jam)</li>
       </ul>
 
@@ -73,7 +73,7 @@ const pages = {
             <option>PEND. PANCASILA</option>
             <option>BAHASA INGGRIS</option>
             <option>BAHASA KOREA</option>
-            <option>MATEmatika</option>
+            <option>MATEMATIKA</option>
             <option>PEND. AGAMA ISLAM</option>
             <option>BAHASA INDONESIA</option>
             <option>DASAR-DASAR AKL 1</option>
@@ -97,13 +97,13 @@ const pages = {
   `,
   feedback: `
     <h2>Feedback</h2>
-    <p>Silakan isi formulir feedback kami:</p>
-    <a href="https://forms.gle/XXXX" target="_blank">Klik di sini untuk Google Form</a>
+    <p>Silakan isi Feedback untuk X AKL 3:</p>
+    <a href="https://forms.gle/XXXX" target="_blank">Feedback us!</a>
   `,
   contact: `
     <h2>Contact Us!</h2>
     <p>Ikuti kami di Instagram:</p>
-    <a href="https://instagram.com/xakl3" target="_blank">@xakl3</a>
+    <a href="http://instagram.com/x.aklthreefold" target="_blank">@AKLTHREEFOLD.X</a>
   `
 };
 
@@ -129,3 +129,4 @@ function showPage(page) {
 
 // Load halaman default
 showPage('profil');
+
