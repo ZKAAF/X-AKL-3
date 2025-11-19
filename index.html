@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8"/>
   <title>X AKL 3</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <header>
-    <h1>WELCOME TO X AKL 3</h1>
-    <p>Web Resmi Kelas X AKL 3</p>
-  </header>
 
-  <nav>
-    <button onclick="showPage('profil')">Profil</button>
-    <button onclick="showPage('agenda')">Agenda</button>
-    <button onclick="showPage('feedback')">Feedback</button>
-    <button onclick="showPage('contact')">Contact Us!</button>
-  </nav>
+  <!-- HALAMAN LOGIN -->
+  <div id="loginPage" class="login-container">
+    <h2>Login X AKL 3</h2>
+    <input type="text" id="username" placeholder="Username / NIS"/>
+    <input type="password" id="password" placeholder="Password"/>
+    <button onclick="login()">Masuk</button>
+    <button onclick="loginGuest()">Masuk sebagai Guest</button>
+    <p id="loginError" style="color:red;"></p>
+  </div>
 
-  <main id="content">
-    <!-- Konten akan dimuat di sini -->
-  </main>
+  <!-- KONTEN UTAMA -->
+  <div id="mainContent" style="display:none;">
+    <header>
+      <h1>WELCOME TO X AKL 3</h1>
+      <p>ISI-TEXT</p>
+    </header>
+
+    <nav>
+      <button onclick="showPage('profil')">Profil</button>
+      <button onclick="showPage('agenda')">Agenda</button>
+      <button onclick="showPage('feedback')">Feedback</button>
+      <button onclick="showPage('contact')">Contact Us!</button>
+      <button onclick="logout()">Logout</button>
+    </nav>
+
+    <main id="content"></main>
+  </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-
