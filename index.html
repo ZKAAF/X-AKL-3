@@ -7,19 +7,20 @@
 </head>
 <body>
 
-  <!-- HALAMAN LOGIN -->
+  <!-- LOGIN -->
   <div id="loginPage" class="login-container">
     <h2>Login X AKL 3</h2>
-    <input type="text" id="username" placeholder="Username / NIS"/>
+    <input type="text" id="username" placeholder="Username (nama depan)"/>
     <input type="password" id="password" placeholder="Password"/>
     <button onclick="login()">Masuk</button>
     <button onclick="loginGuest()">Masuk sebagai Guest</button>
     <p id="loginError" style="color:red;"></p>
   </div>
 
-  <!-- KONTEN UTAMA -->
+  <!-- MAIN -->
   <div id="mainContent" style="display:none;">
     <header>
+      <div id="userInfo"></div>
       <h1>WELCOME TO X AKL 3</h1>
       <p>ISI-TEXT</p>
     </header>
@@ -29,10 +30,22 @@
       <button onclick="showPage('agenda')">Agenda</button>
       <button onclick="showPage('feedback')">Feedback</button>
       <button onclick="showPage('contact')">Contact Us!</button>
-      <button onclick="logout()">Logout</button>
     </nav>
 
     <main id="content"></main>
+
+    <!-- FLOATING LOGOUT -->
+    <div id="logoutBtn" onclick="logout()">Logout</div>
+
+    <!-- FLOATING REMINDER BOX -->
+    <div id="reminderBox" style="display:none;">
+      <div id="reminderHeader" onclick="toggleReminder()">Reminder</div>
+      <div id="reminderBody">
+        <div id="reminderList"></div>
+        <div id="completedList"><small>Completed</small></div>
+      </div>
+    </div>
+
   </div>
 
   <script src="script.js"></script>
