@@ -1,9 +1,48 @@
+// === EDIT NAMA SISWA DI SINI ===
+const namaSiswa = [
+  "Ahmad Fauzan R.",
+  "Anisa Aulia P.",
+  "Ariza Syifa A.",
+  "Arjanti Nathania A.S.",
+  "Aurelia Batrisya U.S.",
+  "Azka Bachtiar F.",
+  "Davina Nasyifa",
+  "Dinda Sahfira P.",
+  "Elica Senta A.",
+  "Fatih Algis S.",
+  "Hafiza Azha S.",
+  "Herliana",
+  "Ivanesya Aztana",
+  "Jelita Sulistya N.",
+  "Kartika Syalom E.H.",
+  "Levy Widya S.",
+  "Mahardika Febriansyah",
+  "Melda",
+  "Millah Oktapiyah",
+  "M. Gilang A.",
+  "Nazzellah Nur R.",
+  "Novia Ardani",
+  "Putri Inaya A.",
+  "Risma Musliyah",
+  "Safa Salsabila",
+  "Santri Yuliani",
+  "Shafa Nur F.",
+  "Shafira Rahmadani",
+  "Silva Rahma A.",
+  "Suci Rahmadiani A.",
+  "Tiara Wijaya",
+  "Trissa Oktaviani",
+  "Vania Wulan O.",
+  "Zaki Abdussyadad",
+  "Zivilia Nuurfatma"
+];
+
 const pages = {
   profil: `
     <h2>Profil Kelas X AKL 3</h2>
-    <h3>Guru</h3>
-    <p>"FARITA NURMALA S.Pd."</p>
-    <h3>Siswa</h3>
+    <h3>Our Teacher!</h3>
+    <p>"Farita Nurmala S.Pd."</p>
+    <h3>A-K-L  ELITE!</h3>
     <div class="profil-grid">
       ${generateSiswa(35)}
     </div>
@@ -84,7 +123,7 @@ const pages = {
         <label>Deskripsi:
           <textarea placeholder="Tugas apa?"></textarea>
         </label>
-        <button type="submit">Tambah Reminder</button>
+        <button type="submit">Remind Them!</button>
       </form>
     </div>
 
@@ -97,13 +136,13 @@ const pages = {
   `,
   feedback: `
     <h2>Feedback</h2>
-    <p>Silakan isi Feedback untuk X AKL 3:</p>
-    <a href="https://forms.gle/XXXX" target="_blank">Feedback us!</a>
+    <p>Silakan isi formulir feedback kami:</p>
+    <a href="https://forms.gle/6hHst21sXwh6fChC8" target="_blank">Feedback us on GForm!</a>
   `,
   contact: `
     <h2>Contact Us!</h2>
-    <p>Ikuti kami di Instagram:</p>
-    <a href="http://instagram.com/x.aklthreefold" target="_blank">@AKLTHREEFOLD.X</a>
+    <p>Follow us on instagram!</p>
+    <a href="http://instagram.com/x.aklthreefold" target="_blank">Here!</a>
   `
 };
 
@@ -113,7 +152,7 @@ function generateSiswa(jumlah) {
     html += `
       <div class="profil-card">
         <img src="assets/siswa${i}.jpg" alt="Siswa ${i}" onerror="this.src='assets/default.jpg'"/>
-        <p>"ISI-TEXT"</p>
+        <p>${namaSiswa[i - 1] || 'Nama Belum Diisi'}</p>
       </div>
     `;
   }
@@ -129,4 +168,3 @@ function showPage(page) {
 
 // Load halaman default
 showPage('profil');
-
