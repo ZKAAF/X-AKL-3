@@ -1,3 +1,4 @@
+const ADMIN_PASS = "6761";
 // ===== NAMA + PASSWORD PER-SISWA =====
 const siswaData = [
   {nama:"Ahmad Fauzan R.", pass:"af001"},
@@ -67,12 +68,12 @@ const pages = {
     </div>`,
   feedback:`
     <h2>Feedback</h2>
-    <p>Ada Masalah Dengan X AKL 3?</p>
-    <a href="https://forms.gle/6hHst21sXwh6fChC8" target="_blank">Feedback us on GForm</a>`,
+    <p>Silakan isi formulir feedback kami:</p>
+    <a href="https://forms.gle/XXXX" target="_blank">Klik di sini untuk Google Form</a>`,
   contact:`
     <h2>Contact Us!</h2>
     <p>Ikuti kami di Instagram:</p>
-    <a href="http://instagram.com/x.aklthreefold" target="_blank">AKLTHREEFOLD.X  </a>`
+    <a href="https://instagram.com/xakl3" target="_blank">@xakl3</a>`
 };
 
 function generateSiswa(){
@@ -87,7 +88,7 @@ function login(){
   const user = document.getElementById('username').value.trim();
   const pass = document.getElementById('password').value.trim();
   // cek admin dulu
-  if(pass === "6761"){ 
+  if(pass === "Azka Hensem"){ 
     currentUser = {level:"admin", index:-1}; 
     enterMain(); 
     return;
@@ -178,4 +179,3 @@ function showPage(page){
 
 // init
 showPage('profil');
-
