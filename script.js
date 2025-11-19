@@ -87,7 +87,7 @@ function login(){
   const user = document.getElementById('username').value.trim();
   const pass = document.getElementById('password').value.trim();
   // cek admin dulu
-  if(pass === "Azka Hensem"){ 
+  if(pass === "6761"){ 
     currentUser = {level:"admin", index:-1}; 
     enterMain(); 
     return;
@@ -178,3 +178,4 @@ function showPage(page){
 
 // init
 showPage('profil');
+
