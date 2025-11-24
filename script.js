@@ -155,7 +155,7 @@ function toggleDone(idx){
 // admin only - tambah reminder
 if(currentUser && currentUser.level === "admin"){
   document.addEventListener('keydown', e=>{
-    if(e.ctrlKey && e.key === 'r'){
+    if(e.ctrlKey && e.shiftKey && e.key === 'T'){
       e.preventDefault();
       const mapel = prompt("Mapel:");
       const tugas = prompt("Deskripsi tugas:");
@@ -171,3 +171,4 @@ if(currentUser && currentUser.level === "admin"){
 function saveReminder(){
   localStorage.setItem("akl3_reminders", JSON.stringify(reminders));
 }
+
