@@ -52,7 +52,7 @@ const pages = {
   agenda:`
     <h2>Agenda / Jadwal Pelajaran</h2>
     <div class="jadwal">
-      <h3>Senin</h3><ul><li>UPACARA</li><li>ETIKA PROFESI (3 jam)</li><li>ISTIRAHAT</li><li>IPAS (3 jam)</li><li>ISHOMA</li><li>SENI MUSIK (2 jam)</li><li>INFORMATIKA (2 jam)</li></ul>
+      <h3>Senin</h3><ul><li>UPACERA</li><li>ETIKA PROFESI (3 jam)</li><li>ISTIRAHAT</li><li>IPAS (3 jam)</li><li>ISHOMA</li><li>SENI MUSIK (2 jam)</li><li>INFORMATIKA (2 jam)</li></ul>
       <h3>Selasa</h3><ul><li>SPREADSHEET (4 jam)</li><li>ISTIRAHAT</li><li>IPAS (3 jam)</li><li>ISHOMA</li><li>PEND. PANCASILA (2 jam)</li><li>BAHASA INGGRIS (2 jam)</li></ul>
       <h3>Rabu</h3><ul><li>INFORMATIKA (2 jam)</li><li>BAHASA KOREA (2 jam)</li><li>ISTIRAHAT</li><li>MATEMATIKA (3 jam)</li><li>ISHOMA</li><li>MATEMATIKA</li><li>PEND. AGAMA ISLAM (3 jam)</li></ul>
       <h3>Kamis</h3><ul><li>BAHASA INDONESIA (4 jam)</li><li>ISTIRAHAT</li><li>BAHASA INGGRIS (2 jam)</li><li>DASAR-DASAR AKL 1 (1 jam)</li><li>ISHOMA</li><li>DASAR-DASAR AKL 1 (3 jam)</li></ul>
@@ -64,8 +64,8 @@ const pages = {
       <img src="assets/kegiatan2.jpg" alt="K2"/>
       <img src="assets/kegiatan3.jpg" alt="K3"/>
     </div>`,
-  feedback:`<h2>Ada masalah dengan XAKL3?:</p><a href="https://forms.gle/Kf29YnYqcDq9KrXn7" target="_blank">Feedback us with GForm/a>`,
-  contact:`<h2>Contact Us!</h2><p>Ikuti kami di Instagram:</p><a href="http://instagram.com/x.aklthreefold" target="_blank">@AKL3FOLD.X</a>`
+  feedback:`<h2>Feedback</h2><p>Silakan isi formulir feedback kami:</p><a href="https://forms.gle/XXXX" target="_blank">Klik di sini untuk Google Form</a>`,
+  contact:`<h2>Contact Us!</h2><p>Ikuti kami di Instagram:</p><a href="https://instagram.com/xakl3" target="_blank">@xakl3</a>`
 };
 
 function generateSiswa(){
@@ -108,7 +108,6 @@ function enterMain(){
 
 function logout(){
   currentUser = null;
-  localStorage.removeItem("akl3_reminders");
   location.reload();
 }
 
@@ -129,16 +128,36 @@ function toggleReminder(){
   body.style.display = body.style.display === 'none' ? 'block' : 'none';
 }
 
+// TOMBOL VISUAL TAMBAH REMINDER
+function tambahReminderVisual(){
+  const mapel = prompt("Nama Mapel:");
+  if(!mapel) return;
+  const tugas = prompt("Deskripsi tugas:");
+  if(!tugas) return;
+  reminders.push({mapel, tugas, done:false, date:new Date().toLocaleString('id-ID')});
+  saveReminder();
+  renderReminder();
+}
+
 function renderReminder(){
   const listDiv = document.getElementById('reminderList');
   const doneDiv = document.getElementById('completedList');
   const active = reminders.filter(r=>!r.done);
   const done = reminders.filter(r=>r.done);
-  listDiv.innerHTML = active.map((r,i)=>`
+
+  // bagian active + tombol tambah (hanya admin)
+  let htmlActive = '';
+  if(currentUser.level === 'admin'){
+    htmlActive = `<button onclick="tambahReminderVisual()" style="width:100%;margin-bottom:8px;">+ Tambah Reminder</button>`;
+  }
+  htmlActive += active.map((r,i)=>`
     <div class="reminder-item">
       <input type="checkbox" onchange="toggleDone(${reminders.indexOf(r)})">
       <label><strong>${r.mapel}</strong>: ${r.tugas} <small>(${r.date})</small></label>
     </div>`).join('');
+  listDiv.innerHTML = htmlActive;
+
+  // bagian completed
   doneDiv.innerHTML = '<small>Completed</small>' + done.map((r,i)=>`
     <div class="reminder-item completed">
       <input type="checkbox" checked onchange="toggleDone(${reminders.indexOf(r)})">
@@ -152,23 +171,9 @@ function toggleDone(idx){
   renderReminder();
 }
 
-// admin only - tambah reminder
-if(currentUser && currentUser.level === "admin"){
-  document.addEventListener('keydown', e=>{
-    if(e.ctrlKey && e.shiftKey && e.key === 'T'){
-      e.preventDefault();
-      const mapel = prompt("Mapel:");
-      const tugas = prompt("Deskripsi tugas:");
-      if(mapel && tugas){
-        reminders.push({mapel, tugas, done:false, date:new Date().toLocaleString('id-ID')});
-        saveReminder();
-        renderReminder();
-      }
-    }
-  });
-}
-
 function saveReminder(){
   localStorage.setItem("akl3_reminders", JSON.stringify(reminders));
 }
 
+// init
+showPage('profil');
